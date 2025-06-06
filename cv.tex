@@ -1,0 +1,97 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1.5cm]{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{fontawesome5}
+\usepackage{array}
+\usepackage[none]{hyphenat}
+\usepackage{makecell}  % fix \makecell error
+
+% CV section formatting
+\newcommand{\cvsection}[3][1.2]{%
+  % #1 = arraystretch (optional), #2 = section title, #3 = table rows
+  \renewcommand{\arraystretch}{1} % Reset to default for header
+  \faCaretRight \; \textbf{#2}
+
+  \renewcommand{\arraystretch}{#1}% Apply custom row spacing
+  \begin{tabular}{
+    >{\raggedleft\arraybackslash}p{0.20\textwidth}
+    @{\hspace{1cm}}
+    >{\raggedright\arraybackslash}
+    p{0.70\textwidth}
+  }
+    #3
+  \end{tabular}
+
+  \renewcommand{\arraystretch}{1}% Reset to default
+  \vspace{2em}%
+}
+
+
+% Remove page numbers
+\pagestyle{empty}
+
+% Customize section headings
+\titleformat{\section}{\large\bfseries\uppercase}{}{0em}{}[\titlerule]
+\titlespacing{\section}{0pt}{12pt}{6pt}
+
+\begin{document}
+
+% Header
+\begin{minipage}[c]{0.65\textwidth}
+    Email: alessandro.pedone02@gmail.com \\
+    Phone: +39 345 705 3904 \\
+    LinkedIn: \href{https://linkedin.com/in/alessandro-pedone-58288a368/}{\faLink} \\
+    GitHub: alessandropedone \href{https://github.com/alessandropedone}{\faLink} \\
+    Location: 20143 Milan, Italy \\
+
+\end{minipage}
+\hfill
+\begin{minipage}[c]{0.3\textwidth}
+    \raggedleft
+    \includegraphics[width=3cm,height=3cm,keepaspectratio]{photo.jpg}
+\end{minipage}
+
+\vspace{12pt}
+\begin{center}
+    {\LARGE\bfseries Alessandro Pedone} \\
+    \vspace{1em}
+    {\LARGE\bfseries Curriculum Vitae} \\
+\end{center}
+
+\vspace{12pt}
+
+\small{
+
+\cvsection{PERSONAL DATA}{
+    \vspace{0.1em} Date of Birth & \vspace{0.1em} 01/10/2002 \\
+    Nationality & Italian \\
+    Place of Birth & Milan, Italy \\
+}
+
+\cvsection{CURRENT POSITION}{
+    \vspace{0.1em} Politecnico di Milano & \vspace{0.1em}  Pursuing Master's Degree in Mathematical Engineering,
+    with a focus on Computational Science and Computational Learning\\
+}
+
+\cvsection{AREAS OF INTEREST}{
+    \vspace{0.1em} & \vspace{0.1em} Scientific Machine Learning\\
+    & Numerical Analysis \\
+    & Partial Differential Equations (PDEs) \\
+    & Mathematical Analysis \\
+}
+
+\cvsection{EDUCATION}{
+    \vspace{0.1em} 2024-2026 & \vspace{0.1em} \textbf{Master's Degree in Mathematical Engineering, Politecnico di Milano} \\
+    & \\
+    2021-2024 & \textbf{Bachelor's Degree in Mathematical Engineering, Politecnico di Milano} \\
+    & Final grade: 110/110 cum laude \\
+    & Thesis: The Cauchy-Kowalevski theorem and some of its consequences \\
+    & Keywords: PDEs, characteristics method, analyticity/holomorphy, power series, method of majorants, Cauchy-Kowalevski, Holmgren and Cartan-Kähler theorems \\
+    & Supervisor: Prof. Maurizio Grasselli
+}
+
+\end{document}
