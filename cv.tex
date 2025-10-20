@@ -122,29 +122,28 @@
         & Topics:
         \begin{itemize}[leftmargin=*,nosep,label={\tiny$\bullet$}]
             \item High-Dimensional Approximations for Parametric and Random PDEs
-            \item Inverse Optimal Transport 
-            \item Proximal Optimization and Deep Learning Methods
-            \item Data-Driven Methods in Control
+            \item Inverse Optimal Transport Introduction
+            \item Proximal Optimization and Deep Learning Methods (with applications to designing networks architectures)
+            \item Data-Driven Methods in Control (focus on Koopman-based techniques)
             \item The Approximation Theory of (Shallow and Deep) Neural Networks
         \end{itemize}
     }
 
     \cvsection{PROJECTS}{
-        04/2025 - Current &    \textbf{Coupling CGA-DL-ROM with traditional solver for multiphysics problem} \\
-        & Reference: \href{https://arxiv.org/abs/2411.05486v1}{\faLink} \\
-        & Objective: perform simulation of a simplified MEMS dynamics.\\
-        & Dataset: 1000 meshes with the corresponding solutions of the problem.\\
+        04/2025 - Current &    \textbf{Geom-DeepONet (in progress)} \\
+        & Reference: \href{https://arxiv.org/abs/2403.14788}{\faLink} \\
+        & Objective: develop a surrogate model for electrostatic problem in an idealized MEMS.\\
+        & Dataset: meshes with the corresponding solutions.\\
+        & Future applications: coupling the surrogate model to solve multiphysics problems.\\
         & Methodology:
         \begin{enumerate}[leftmargin=*,nosep]
-            \item Built the meshes making 3 geometric parameters of the domain vary.
+            \item Built the meshes making geometric parameters of the domain vary.
             \item Use traditional FEM solver to obtain the solution (of the electrical part of
                   the problem) for each case.
-            \item Train a neural network (GCA-DL-ROM) as a surrogate model for this problem.
-            \item Couple this efficient ROM with a traditional solver (for the mechanical part of
-                  the problem) to obtain the motion inside the MEMS.
+            \item Train a network as a surrogate model for this problem.
         \end{enumerate}\\
 
-        04/2025 - Current & \textbf{Coupling MPE and Stokes' equations for cerebrospinal fluid flow and tissue motion} \\
+        04/2025 - Current & \textbf{Coupling MPE and Stokes' equations for cerebrospinal fluid flow and tissue motion (in progress)} \\
         & Reference: \href{https://fluidsbarrierscns.biomedcentral.com/articles/10.1186/s12987-022-00376-2}{\faLink} \\
         & Objective: study cerebrospinal fluid (CSF) flow, inside brain ventricles and subarachnoid space, with a focus on modeling the latter and exploiting already existing results. \\
         & Dataset: not publicly available. \\
