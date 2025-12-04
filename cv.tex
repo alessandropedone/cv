@@ -78,15 +78,15 @@
 
     \cvsection{CURRENT POSITION}{
         Politecnico di Milano & Pursuing Master's Degree in Mathematical Engineering,
-        with a focus on Computational Science and Computational Learning\\
+        track in Computational Science and Computational Learning\\
     }
 
-    \cvsection{AREAS OF INTEREST}{
-        &  Scientific Machine Learning\\
-        & Numerical Analysis \\
-        & Partial Differential Equations (PDEs) \\
-        & Mathematical Analysis \\
-    }
+    %\cvsection{AREAS OF INTEREST}{
+    %    &  Scientific Machine Learning\\
+    %    & Numerical Analysis \\
+    %    & Partial Differential Equations (PDEs) \\
+    %    & Mathematical Analysis \\
+    %}
 
     \cvsection{EDUCATION}{
         2024 - Current &   \textbf{Master's Degree in Mathematical Engineering, Politecnico di Milano} \\
@@ -99,6 +99,28 @@
     }
 
     \cvsection{EXPERIENCE}{
+
+        01/12/2025 - 03/12/2025 & \textbf{SISSA Junior Math Days} \\
+        & \textit{Event organized every year by SISSA, with the goal of allowing Master’s students
+            in their final year to get in touch with the mathematical research environment
+            (professors and PhD students) at SISSA.} \\
+
+        \vspace{0.5em}\\
+
+        22/09/2025 - 26/09/2025 & \textbf{Workshop and Summer School on Applied Analysis 2025} \\
+        & \textit{Organized by TU Chemnitz.} \\
+        & Topics:
+        \begin{itemize}[leftmargin=*,nosep,label={\tiny$\bullet$}]
+            \item High-Dimensional Approximations for Parametric and Random PDEs
+            \item Inverse Optimal Transport Introduction
+            \item Proximal Optimization and Deep Learning Methods (with applications to designing
+                  networks architectures)
+            \item Data-Driven Methods in Control (focus on Koopman-based techniques)
+            \item The Approximation Theory of (Shallow and Deep) Neural Networks
+        \end{itemize}\\
+
+        \newpage
+
         23/06/2025 - 27/06/2025 & \textbf{Theorical Foundations of Machine Learning 2025} \\
         & \textit{Admitted (as a Master's student) to a selective PhD program organized
             by MaLGa (Machine Learning Genoa Center) at the University of Genoa,
@@ -112,41 +134,21 @@
             \item Optimization techniques: convex analysis, gradient methods, stochastic
                   optimization, splitting methods, backpropagation
             \item Theoretical analysis: concentration inequalities, empirical process theory,
-                  spectral calculus, operator theory
-        \end{itemize}\\
-
-        \newpage
-        
-        22/09/2025 - 26/09/2025 & \textbf{Workshop and Summer School on Applied Analysis 2025} \\
-        & \textit{Organized by TU Chemnitz.} \\
-        & Topics:
-        \begin{itemize}[leftmargin=*,nosep,label={\tiny$\bullet$}]
-            \item High-Dimensional Approximations for Parametric and Random PDEs
-            \item Inverse Optimal Transport Introduction
-            \item Proximal Optimization and Deep Learning Methods (with applications to designing networks architectures)
-            \item Data-Driven Methods in Control (focus on Koopman-based techniques)
-            \item The Approximation Theory of (Shallow and Deep) Neural Networks
+                  spectral calculus, operator theory, Rademacher complexities
         \end{itemize}
+
     }
 
     \cvsection{PROJECTS}{
         04/2025 - Current &    \textbf{Geom-DeepONet (in progress)} \\
         & Reference: \href{https://arxiv.org/abs/2403.14788}{\faLink} \\
-        & Objective: develop a surrogate model for electrostatic problem in an idealized MEMS.\\
-        & Dataset: meshes with the corresponding solutions.\\
-        & Future applications: coupling the surrogate model to solve multiphysics problems.\\
-        & Methodology:
-        \begin{enumerate}[leftmargin=*,nosep]
-            \item Built the meshes making geometric parameters of the domain vary.
-            \item Use traditional FEM solver to obtain the solution (of the electrical part of
-                  the problem) for each case.
-            \item Train a network as a surrogate model for this problem.
-        \end{enumerate}\\
+        & Objective: develop a surrogate model for the electrostatic problem in an idealized MEMS with varying geometry.\\
+        & Future applications: coupling the surrogate model to solve multiphysics (electro-mechanical) problems.\\
+        \vspace{0.5em}\\
 
         04/2025 - Current & \textbf{Coupling MPE and Stokes' equations for cerebrospinal fluid flow and tissue motion (in progress)} \\
         & Reference: \href{https://fluidsbarrierscns.biomedcentral.com/articles/10.1186/s12987-022-00376-2}{\faLink} \\
         & Objective: study cerebrospinal fluid (CSF) flow, inside brain ventricles and subarachnoid space, with a focus on modeling the latter and exploiting already existing results. \\
-        & Dataset: not publicly available. \\
         & Methodology:
         \begin{enumerate}[leftmargin=*,nosep]
             \item \textit{Implementation challenges:} segmenting the geometry (obtained from MRI) and
@@ -168,41 +170,42 @@
         \end{enumerate}\\
 
         12/2024 & \textbf{Mars Terrain segmentation} \\
-        & Objective: segment Mars terrain images into five classes: Background, Soil, Bedrock, Sand, and Big Rock.\\
+        & Objective: segment Mars terrain images into five classes (Background, Soil, Bedrock, Sand, and Big Rock) using a UNet architecture.\\
         & Dataset: 2,615 grayscale images (64x128 resolution), filtered to 2,505 images.\\
-        & Methodology:
-        \begin{enumerate}[leftmargin=*,nosep]
-            \item Built an initial encoder-decoder architecture as benchmark.
-            \item Added layer for Edge Detection, Thresholding and others methods of computer
-                  vision.
-            \item Implemented a dual UNet architecture (Global and Local perspectives).
-            \item Designed custom loss functions and loss schedules.
-            \item Applied data augmentation and fine-tuned optimization hyperparameters.
-        \end{enumerate}\\
-
-        \newpage
+        \vspace{0.5em}\\
+        % & Methodology:
+        % \begin{enumerate}[leftmargin=*,nosep]
+        %     \item Built an initial encoder-decoder architecture as benchmark.
+        %     \item Added layer for Edge Detection, Thresholding and others methods of computer
+        %           vision.
+        %     \item Implemented a dual UNet architecture (Global and Local perspectives).
+        %     \item Designed custom loss functions and loss schedules.
+        %     \item Applied data augmentation and fine-tuned optimization hyperparameters.
+        % \end{enumerate}\\        
 
         11/2024 & \textbf{Blood Cell Classification} \\
-        & Objective: perform an 8-class classification task on blood cells images.\\
+        & Objective: perform an 8-class classification task on blood cells images using CNNs.\\
         & Dataset: 13,759 RGB images (96x96 resolution), filtered to 11,959 images after preprocessing.\\
-        & Methodology:
-        \begin{enumerate}[leftmargin=*,nosep]
-            \item Built an initial CNN architecture with regularization and augmentation as
-                  benchmark.
-            \item Implemented Transfer Learning (TL) and Fine Tuning (FT).
-            \item Deployed an ensemble of the best-performing models.
-        \end{enumerate}\\
+        \vspace{0.5em}\\
+        % & Methodology:
+        % \begin{enumerate}[leftmargin=*,nosep]
+        %    \item Built an initial CNN architecture with regularization and augmentation as
+        %          benchmark.
+        %     \item Implemented Transfer Learning (TL) and Fine Tuning (FT).
+        %     \item Deployed an ensemble of the best-performing models.
+        % \end{enumerate}\\
 
         04/2024 – 06/2024 & \textbf{Statistical Inference for Math Performance} \\
         & Objective: build a linear regression model for math perfomance of italian high school students.\\
         & Dataset: OECD PISA 2022 survey.\\
-        & Methodology:
-        \begin{enumerate}[leftmargin=*,nosep]
-            \item Non-parametric ANOVA (Kruskal-Wallis and Dunn's test).
-            \item Removal of influential points (outliers and leverages).
-            \item Cross-validation.
-            \item Prediction and confidence intervals.
-        \end{enumerate}\\
+        \vspace{0.5em}\\
+        % & Methodology:
+        % \begin{enumerate}[leftmargin=*,nosep]
+        %     \item Non-parametric ANOVA (Kruskal-Wallis and Dunn's test).
+        %     \item Removal of influential points (outliers and leverages).
+        %     \item Cross-validation.
+        %     \item Prediction and confidence intervals.
+        % \end{enumerate}\\
     }
 
     \cvsection{SKILLS}{
