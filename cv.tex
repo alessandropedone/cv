@@ -1,215 +1,240 @@
-\documentclass[10pt,a4paper]{article}
-\usepackage[utf8]{inputenc}
-\usepackage[margin=1.5cm]{geometry}
-\usepackage{enumitem}
-\usepackage{titlesec}
-\usepackage{hyperref}
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage{tgpagella}
+\usepackage[default,type1]{sourcesanspro}
+\usepackage{microtype}
+\usepackage[margin=18mm,footskip=10mm]{geometry}
 \usepackage{graphicx}
-\usepackage{fontawesome5}
-\usepackage{array}
-\usepackage{longtable}
-\usepackage[none]{hyphenat}
-\usepackage{makecell}  % fix \makecell error
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{iftex}
+\usepackage{hyperref}
+
 \graphicspath{{img/}}
+\definecolor{ink}{HTML}{1C2027}
+\definecolor{muted}{HTML}{505864}
+\definecolor{accent}{HTML}{233C5C}
+\definecolor{rulecolor}{HTML}{BFC7D1}
 
-% CV section formatting
+\hypersetup{
+  pdftitle={Alessandro Pedone - Curriculum Vitae},
+  pdfauthor={Alessandro Pedone},
+  pdflang={en},
+  colorlinks=true,
+  urlcolor=accent
+}
+\ifPDFTeX
+  \input{glyphtounicode}
+  \pdfgentounicode=1
+\fi
 
-\newcommand{\cvsection}[3][1.2]{%
-  \renewcommand{\arraystretch}{1} % Reset to default for header
-  \faCaretRight \; \textbf{#2}
+\setlength{\parindent}{0pt}
+\setlist[itemize]{leftmargin=1.2em, itemsep=0pt, topsep=2pt, parsep=0pt}
+\raggedbottom
 
-  \renewcommand{\arraystretch}{#1}% Apply custom row spacing
-  \begin{longtable}{
-    >{\raggedleft\arraybackslash}p{0.20\textwidth}
-    @{\hspace{1cm}}
-    >{\raggedright\arraybackslash}p{0.68\textwidth}
-  }
-    \endfirsthead
-    \endhead
-    \endfoot
-    \endlastfoot
-    #3
-  \end{longtable}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[R]{\small\color{muted}\thepage}
+\renewcommand{\headrulewidth}{0pt}
 
-  \renewcommand{\arraystretch}{1}% Reset to default
-  \vspace{1em}%
+\newlength{\cvlabelwidth}
+\setlength{\cvlabelwidth}{39mm}
+\newlength{\cvcolumngap}
+\setlength{\cvcolumngap}{5mm}
+\newlength{\cvrowgap}
+\setlength{\cvrowgap}{5pt}
+
+\newcommand{\cvsection}[1]{%
+  \par\addvspace{18pt}%
+  \noindent{\color{accent}\bfseries\textls[100]{\MakeUppercase{#1}}}%
+  \hspace{11pt}{\color{rulecolor}\leaders\hrule height 3pt depth -2.5pt\hfill\kern0pt}%
+  \par\nobreak\addvspace{7pt}%
 }
 
-% Remove page numbers
-\pagestyle{empty}
+\newcommand{\cvrow}[2]{%
+  \noindent
+  \begin{minipage}[t]{\cvlabelwidth}
+    \raggedright\small\leavevmode\color{muted}#1
+  \end{minipage}%
+  \hspace{\cvcolumngap}%
+  \begin{minipage}[t]{\dimexpr\textwidth-\cvlabelwidth-\cvcolumngap\relax}
+    \raggedright #2
+  \end{minipage}%
+  \par\addvspace{\cvrowgap}%
+}
 
-% Customize section headings
-\titleformat{\section}{\large\bfseries\uppercase}{}{0em}{}[\titlerule]
-\titlespacing{\section}{0pt}{12pt}{6pt}
+\newcommand{\headerline}{%
+  \par\nointerlineskip\vspace{9pt}%
+  {\color{accent}\rule{\textwidth}{0.8pt}}\par
+}
 
 \begin{document}
+\color{ink}
 
-% Header
-\begin{minipage}[c]{0.65\textwidth}
-    Email: alessandro.pedone02@gmail.com \\
-    Phone: +39 345 705 3904 \\
-    LinkedIn: \href{https://linkedin.com/in/alessandro-pedone-58288a368/}{\faLink} \\
-    GitHub: alessandropedone \href{https://github.com/alessandropedone}{\faLink} \\
-    Location: 20143 Milan, Italy \\
-
-\end{minipage}
+\begin{minipage}[c]{\dimexpr\textwidth-36mm\relax}
+  {\rmfamily\fontsize{33}{37}\selectfont Alessandro Pedone\par}
+  \vspace{7pt}
+  {\small\color{muted}
+    Born 1 October 2002 in Milan, Italy\par
+    \vspace{5pt}
+    \href{mailto:alessandro.pedone02@gmail.com}{alessandro.pedone02@gmail.com}%
+    \quad\href{tel:+393457053904}{+39 345 705 3904}\par
+    \href{https://linkedin.com/in/alessandro-pedone-58288a368/}{LinkedIn}%
+    \quad\href{https://github.com/alessandropedone}{GitHub / alessandropedone}\par
+  }
+\end{minipage}%
 \hfill
-\begin{minipage}[c]{0.3\textwidth}
-    \raggedleft
-    \includegraphics[width=3cm,height=3cm,keepaspectratio,angle=0]{photo.png}
+\begin{minipage}[c]{29mm}
+  \includegraphics[width=\linewidth]{photo.png}
 \end{minipage}
+\headerline
 
-\vspace{12pt}
-\begin{center}
-    {\LARGE\bfseries Alessandro Pedone} \\
-    \vspace{1em}
-    {\LARGE\bfseries Curriculum Vitae} \\
-\end{center}
-
-\vspace{12pt}
-
-\small{
-
-    \cvsection{PERSONAL DATA}{
-        Date of Birth & 01/10/2002 \\
-        Nationality & Italian \\
-        Place of Birth & Milan, Italy \\
-    }
-
-    \cvsection{CURRENT STATUS}{
-        Politecnico di Milano & Pursuing Master's Degree in Mathematical Engineering,
-        track in Computational Science and Computational Learning\\
-        SISSA & Master's Thesis on flows of Sobolev vector fields and convex integration
-        under the supervision of Prof. Nicola Gigli
-    }
-
-    %\cvsection{AREAS OF INTEREST}{
-    %    & Scientific Machine Learning\\
-    %    & Numerical Analysis \\
-    %    & Partial Differential Equations (PDEs) \\
-    %    & Mathematical Analysis \\
-    %}
-
-    \cvsection{EDUCATION}{
-        2024 - Current &  \textbf{Master's Degree in Mathematical Engineering, Politecnico di Milano} \\
-        & GPA: 29.63/30 (all exams passed) \\
-        & \\
-        2021 - 2024 & \textbf{Bachelor's Degree in Mathematical Engineering, Politecnico di Milano} \\
-        & GPA: 28.93/30 \\
-        & Final grade: 110/110 cum laude \\
-        & Thesis: The Cauchy-Kowalevski theorem and some of its consequences \\
-        % & Keywords: PDEs, characteristics method, analyticity/holomorphy, power series, majorant method, Cauchy-Kowalevski, Holmgren and Cartan-Kähler theorems \\
-        & Supervisor: Prof. Maurizio Grasselli
-    }
-
-    \cvsection{EXPERIENCE}{
-
-        14/09/2026 - 20/11/2026 & \textbf{Master's Thesis, SISSA} \\
-        & \textit{Also attended the course ``De Giorgi and Gromov working together''. \href{https://www.math.sissa.it/course/phd-course/de-giorgi-and-gromov-working-together/index.html}{\faLink}} \\
-
-        \vspace{0.1em}\\
-
-        29/06/2026 - 03/07/2026 & \textbf{GMT: unraveling the structure of singularities, UniTrento} \\
-
-        \vspace{0.1em}\\
-
-        01/12/2025 - 03/12/2025 & \textbf{Junior Math Days 2025, SISSA} \\
-        %& \textit{Event organized every year by SISSA, with the goal of allowing Master’s students
-        %    in their final year to get in touch with the mathematical research environment
-        %    (professors and PhD students) at SISSA.} \\
-
-        \vspace{0.1em}\\
-
-        22/09/2025 - 26/09/2025 & \textbf{Workshop and Summer School on Applied Analysis 2025, TU Chemnitz} \\
-        %& \textit{Organized by TU Chemnitz.} \\
-        %& Topics:
-        %\begin{itemize}[leftmargin=*,nosep,label={\tiny$\bullet$}]
-        %    \item High-Dimensional Approximations for Parametric and Random PDEs
-        %    \item Inverse Optimal Transport Introduction
-        %    \item Proximal Optimization and Deep Learning Methods (with applications to designing
-        %          networks architectures)
-        %    \item Data-Driven Methods in Control (focus on Koopman-based techniques)
-        %    \item The Approximation Theory of (Shallow and Deep) Neural Networks
-        %\end{itemize}\\
-
-        \vspace{0.1em}\\
-
-        23/06/2025 - 27/06/2025 & \textbf{Theorical Foundations of Machine Learning 2025, UniGe} \\
-        %& \textit{Admitted (as a Master's student) to a selective PhD program organized
-        %    by MaLGa (Machine Learning Genoa Center) at the University of Genoa,
-        %    with an acceptance rate of approximately 35\%, primarily comprising PhD candidates.} \\
-        %& Topics:
-        %\begin{itemize}[leftmargin=*,nosep,label={\tiny$\bullet$}]
-        %    \item Statistical learning theory framework
-        %    \item Kernel methods and neural networks
-        %    \item Empirical risk minimization and regularization
-        %    \item Reproducing kernel Hilbert spaces (RKHS)
-        %    \item Optimization techniques: convex analysis, gradient methods, stochastic
-        %          optimization, splitting methods, backpropagation
-        %    \item Theoretical analysis: concentration inequalities, empirical process theory,
-        %          spectral calculus, operator theory, Rademacher complexities
-        %\end{itemize}
-    }
-    \newpage
-
-    \cvsection{PROJECTS}{
-        04/2025 - 09/2026 & \textbf{deeponet-for-mems} \\
-        & Description: Coupling a DL-ROM with a traditional ROM to solve multi-physics problem (MEMS simple model).\\
-        \vspace{0.5em}\\
-
-        03/2026 &  \textbf{Python Workflow Guide } \href{https://hexagonal-giraffe-6f8.notion.site/Python-Workflow-Guide-1a4e8405938380ca9618e921065015aa\#32be8405938380ce8629d99981002cad}{\faLink} \\
-        & Description: comprehensive guide for building a Python workflow for (scientific computing) projects, mainly aimed at Windows and Linux users with limited terminal experience.\\
-        \vspace{0.5em}\\
-
-        03/2025 - 05/2025 & \textbf{C++ Scientific Computing Projects}
-        \begin{enumerate}[leftmargin=*,nosep]
-            \item Some optimization methods for real-valued functions (Gradient Descent, Heavy
-                  Ball, Nesterov, ADAM...)
-            \item Parallel implementations of two kind of solvers for the Poisson equation in the
-                  unit square (Schwarz method)
-            \item Implementation of a matrix class, particularly suited for sparse matrices
-                  (CSR/CSC formats and modified formats)
-        \end{enumerate}\\
-
-        11/2024 - 12/2024 & \textbf{Deep Learning Projects}
-        \begin{enumerate}[leftmargin=*,nosep]
-            \item Mars Terrain segmentation of grayscale images (UNet architecture).
-            \item Blood Cell Classification of RGB images (CNNs and Transfer Learning).
-        \end{enumerate}\\
-
-        04/2024 - 06/2024 & \textbf{Statistical Inference for Math Performance} \\
-        & Description: a linear regression model for math perfomance of italian high school students trained on the OECD PISA 2022 survey.\\
-        \vspace{0.5em}
-    }
-
-    \cvsection{SKILLS}{
-        Programming Languages & Python, C/C++, MATLAB, R, LaTeX, SQL\\
-        Relevant Libraries & scikit-learn, TensorFlow, Keras, Pytorch, MIP, FEniCS, FEniCSx, gmsh \\
-        Operating Systems & Linux, Windows \\
-        Additional Software & Notion \\
-        Memory techniques & Method of loci, Mnemonic major system, Mnemonic link system
-    }
-
-    \cvsection{LANGUAGES}{
-        Italian &  Native speaker \\
-        English & C1 (IELTS 7.5) \\
-    }
-
-    \cvsection{HONOURS AND AWARDS}{
-        25/01/2023 &   \textbf{Premio Migliori Matricole aa 21-22 Classe L 8 Fondo Giovani} \\
-        & Best Freshmen Award, academic year 2021-2022, Class L-8, Fondo Giovani — granted upon completion of the first year of enrollment, based on academic performance, including GPA and the number of ECTS credits earned.
-    }
-
-    \cvsection{MEMBERSHIPS}{
-        2025 - Current &   SIAM (Society for Industrial and Applied Mathematics) \\
-        2021 - Current & AIM (Associazione Ingegneri Matematici)
-    }
-
-    \cvsection{VOLUNTEERING}{
-        2020 - Current &   Blood donor \\
-        2018 & ABCDigital: Liceo Scientifico Elio Vittorini promoted a project to organize a free course for senior citizens,
-        consisting of 10 weekly lectures (2 hours each), aimed at improving their digital skills,
-        device usage, and online awareness.
-    }
+\cvsection{Current Status}
+\cvrow{Politecnico di Milano}{%
+  Pursuing a Master's Degree in Mathematical Engineering, track in
+  Computational Science and Computational Learning%
 }
+\cvrow{SISSA}{%
+  Master's thesis on flows of Sobolev vector fields and convex integration
+  under the supervision of Prof.\ Nicola Gigli%
+}
+
+% \cvsection{Areas of Interest}
+% Scientific Machine Learning, Numerical Analysis, Partial Differential
+% Equations (PDEs), Mathematical Analysis
+
+\cvsection{Education}
+\cvrow{2024 -- Present}{%
+  \textbf{Master's Degree in Mathematical Engineering}, Politecnico di Milano\\
+  GPA: 29.63/30 (all exams passed)%
+}
+\cvrow{2021 -- 2024}{%
+  \textbf{Bachelor's Degree in Mathematical Engineering}, Politecnico di Milano\\
+  GPA: 28.93/30 \quad Final grade: 110/110 cum laude\\
+  Thesis: \textit{The Cauchy-Kowalevski theorem and some of its consequences}\\
+  % Keywords: PDEs, characteristics method, analyticity/holomorphy, power series,
+  % majorant method, Cauchy-Kowalevski, Holmgren and Cartan-Kähler theorems
+  Supervisor: Prof.\ Maurizio Grasselli%
+}
+
+\cvsection{Research and Academic Activities}
+\cvrow{14 Sep -- 20 Nov 2026}{%
+  \textbf{Master's Thesis}, SISSA\\
+  Attended the course
+  \href{https://www.math.sissa.it/course/phd-course/de-giorgi-and-gromov-working-together/index.html}{De Giorgi and Gromov working together}.\\
+  Gave a talk on laminates and convex integration as part of a reading seminar
+  series on oscillation and concentration.%
+}
+\addvspace{11pt}
+\cvrow{29 Jun -- 3 Jul 2026}{%
+  \textbf{GMT: unraveling the structure of singularities}, UniTrento%
+}
+\cvrow{1 -- 3 Dec 2025}{%
+  \textbf{Junior Math Days 2025}, SISSA%
+  % Event organized every year by SISSA, with the goal of allowing Master’s students
+  % in their final year to get in touch with the mathematical research environment
+  % (professors and PhD students).
+}
+\cvrow{22 -- 26 Sep 2025}{%
+  \textbf{Workshop and Summer School on Applied Analysis 2025}, TU Chemnitz%
+  % Topics:
+  % - High-Dimensional Approximations for Parametric and Random PDEs
+  % - Inverse Optimal Transport Introduction
+  % - Proximal Optimization and Deep Learning Methods (with applications to designing
+  %   networks architectures)
+  % - Data-Driven Methods in Control (focus on Koopman-based techniques)
+  % - The Approximation Theory of (Shallow and Deep) Neural Networks
+}
+\cvrow{23 -- 27 Jun 2025}{%
+  \textbf{Theoretical Foundations of Machine Learning 2025}, UniGe%
+  % Admitted (as a Master's student) to a selective PhD program organized
+  % by MaLGa (Machine Learning Genoa Center) at the University of Genoa,
+  % with an acceptance rate of approximately 35%, primarily comprising PhD candidates.
+  % Topics:
+  % - Statistical learning theory framework
+  % - Kernel methods and neural networks
+  % - Empirical risk minimization and regularization
+  % - Reproducing kernel Hilbert spaces (RKHS)
+  % - Optimization techniques: convex analysis, gradient methods, stochastic
+  %   optimization, splitting methods, backpropagation
+  % - Theoretical analysis: concentration inequalities, empirical process theory,
+  %   spectral calculus, operator theory, Rademacher complexities
+}
+
+\cvsection{Honours and Awards}
+\cvrow{25 Jan 2023}{%
+  \textbf{Premio Migliori Matricole aa 21-22 Classe L 8 Fondo Giovani}\\
+  Best Freshmen Award, academic year 2021--2022, Class L-8, Fondo Giovani ---
+  granted upon completion of the first year of enrollment, based on academic
+  performance, including GPA and the number of ECTS credits earned.%
+}
+
+\cvsection{Memberships}
+\cvrow{2025 -- Present}{SIAM (Society for Industrial and Applied Mathematics)}
+\cvrow{2021 -- Present}{AIM (Associazione Ingegneri Matematici)}
+
+\newpage
+
+{\rmfamily\fontsize{18}{22}\selectfont Alessandro Pedone\par}
+\headerline
+
+\cvsection{Projects}
+\begingroup
+\setlength{\cvrowgap}{12pt}
+\cvrow{Apr 2025 -- Sep 2026}{%
+  \textbf{\href{https://github.com/alessandropedone/deeponet-for-mems}{deeponet-for-mems}}\\
+  Coupling a DL-ROM with a traditional ROM to solve a multiphysics problem
+  (MEMS simple model).%
+}
+\cvrow{Mar 2026}{%
+  \textbf{\href{https://hexagonal-giraffe-6f8.notion.site/Python-Workflow-Guide-1a4e8405938380ca9618e921065015aa\#32be8405938380ce8629d99981002cad}{Python Workflow Guide}}\\
+  A comprehensive guide for building a Python workflow for scientific computing
+  projects, mainly aimed at Windows and Linux users with limited terminal experience.%
+}
+\cvrow{Mar -- May 2025}{%
+  \textbf{C++ Scientific Computing Projects}
+  \begin{itemize}
+    \item Optimization methods for real-valued functions (Gradient Descent, Heavy
+          Ball, Nesterov, ADAM\ldots)
+    \item Parallel implementations of two kinds of solvers for the Poisson equation
+          in the unit square (Schwarz method)
+    \item Implementation of a matrix class, particularly suited for sparse matrices
+          (CSR/CSC and modified formats)
+  \end{itemize}
+}
+\cvrow{Nov -- Dec 2024}{%
+  \textbf{Deep Learning Projects}
+  \begin{itemize}
+    \item Mars terrain segmentation of grayscale images (U-Net architecture)
+    \item Blood cell classification of RGB images (CNNs and transfer learning)
+  \end{itemize}
+}
+\cvrow{Apr -- Jun 2024}{%
+  \textbf{\href{https://github.com/alessandropedone/statistical-inference-project}{Statistical Inference for Math Performance}}\\
+  A linear regression model for math performance of Italian high school students
+  trained on the OECD PISA 2022 survey.%
+}
+\endgroup
+
+\cvsection{Skills}
+\cvrow{Programming Languages}{Python, C/C++, MATLAB, R, LaTeX, SQL}
+\cvrow{Relevant Libraries}{scikit-learn, TensorFlow, Keras, PyTorch, MIP, FEniCS, FEniCSx, gmsh}
+\cvrow{Operating Systems}{Linux, Windows}
+\cvrow{Additional Software}{Notion}
+\cvrow{Memory Techniques}{Method of loci, mnemonic major system, mnemonic link system}
+
+\cvsection{Languages}
+\cvrow{Italian}{Native speaker}
+\cvrow{English}{C1 (IELTS 7.5)}
+
+\cvsection{Volunteering}
+\cvrow{2020 -- Present}{Blood donor}
+\cvrow{2018}{%
+  ABCDigital: Liceo Scientifico Elio Vittorini promoted a project to organize
+  a free course for senior citizens, consisting of 10 weekly lectures (2 hours each),
+  aimed at improving their digital skills, device usage, and online awareness.%
+}
+
 \end{document}
